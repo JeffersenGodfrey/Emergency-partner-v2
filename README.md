@@ -6,11 +6,11 @@ An AI-powered emergency support app that works **offline-first**, built with **S
 
 ## 🔍 Features
 
-- 🧠 AI-based intent detection from user input
-- 📍 Local database of emergency resources (offline-ready)
-- ⚡ Smart search based on city + emergency type
-- 🎨 Clean, modern dark UI (glassmorphic style)
-- 🧰 Lightweight (no external APIs or online dependencies)
+-  AI-based intent detection from user input
+-  Local database of emergency resources (offline-ready)
+-  Smart search based on city + emergency type
+-  Clean, modern dark UI (glassmorphic style)
+-  Lightweight (no external APIs or online dependencies)
 
 ---
 
