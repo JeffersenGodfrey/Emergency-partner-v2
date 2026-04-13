@@ -1,24 +1,45 @@
-# Emergency-partner
+# Emergency Partner
 
-# 🚨 AI Emergency Resource Finder
+AI-powered offline emergency resource finder. React + Node.js.
 
-An AI-powered emergency support app that works **offline-first**, built with **Streamlit** and designed to help users quickly find local emergency services like medical aid, flood shelters, and charging stations.
+## Setup
 
-## 🔍 Features
+### Backend
 
--  AI-based intent detection from user input
--  Local database of emergency resources (offline-ready)
--  Smart search based on city + emergency type
--  Clean, modern dark UI (glassmorphic style)
--  Lightweight (no external APIs or online dependencies)
+```bash
+cd backend
+npm install
+npm start
+```
 
----
+### Frontend
 
-## 📁 Project Structure
-ai_emergency_finder/
-├── app.py # Main Streamlit app
-├── nlp_engine.py # Keyword-based AI classifier
-├── requirements.txt # Python dependencies
-└── data/
-└── emergency_data.json # Local emergency resource DB
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
+App runs on `http://localhost:3000`
+
+## Development
+
+**Lint/Format:**
+
+```bash
+npm run lint
+npm run format
+```
+
+**Build:**
+
+```bash
+npm run build
+```
+
+## Stack
+
+- React 18 + Vite
+- Node.js + Express
+- ESLint + Prettier
+- GitHub Actions CI/CD

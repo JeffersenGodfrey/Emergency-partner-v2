@@ -1,0 +1,15 @@
+{
+  "name": "emergency-partner",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "npm --prefix frontend run lint",
+    "build": "npm --prefix frontend run build",
+    "backend:check": "node --check backend/server.js"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}

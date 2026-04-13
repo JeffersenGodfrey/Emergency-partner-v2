@@ -1,0 +1,82 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  backend-tests:
+    name: Backend - Format, Lint, and Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install backend dependencies
+        run: cd backend && npm ci
+
+      - name: Check backend formatting
+        run: cd backend && npm run format:check
+
+      - name: Run backend linter
+        run: cd backend && npm run lint
+
+  frontend-tests:
+    name: Frontend - Format, Lint, and Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install frontend dependencies
+        run: cd frontend && npm ci
+
+      - name: Check frontend formatting
+        run: cd frontend && npm run format:check
+
+      - name: Run frontend linter
+        run: cd frontend && npm run lint
+
+      - name: Build frontend
+        run: cd frontend && npm run build
+
+  check-root:
+    name: Root - Format Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check root formatting
+        run: npx prettier . --check --ignore-path .prettierignore
+
+  all-checks-pass:
+    name: All Checks Passed
+    needs: [backend-tests, frontend-tests, check-root]
+    runs-on: ubuntu-latest
+
+    if: success()
+
+    steps:
+      - name: Success
+        run: echo "CI pipeline completed successfully!"

@@ -1,0 +1,21 @@
+{
+  "name": "emergency-partner-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "emergency-partner": "file:..",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0",
+    "prettier": "^3.0.0"
+  }
+}
