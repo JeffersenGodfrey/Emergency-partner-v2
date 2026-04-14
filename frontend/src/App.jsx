@@ -8,13 +8,19 @@ export default function App() {
   const [message, setMessage] = useState('');
   const [searchInfo, setSearchInfo] = useState(null);
 
+  // API base URL - uses Render backend in production, localhost in dev
+  const API_BASE_URL =
+    import.meta.env.MODE === 'production'
+      ? 'https://emergency-partner-v2-1.onrender.com/api'
+      : '/api';
+
   const handleSearch = async (city, emergencyType, description) => {
     setLoading(true);
     setMessage('');
     setResults([]);
 
     try {
-      const res = await fetch('/api/search', {
+      const res = await fetch(`${API_BASE_URL}/search`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ city, emergencyType, description }),
