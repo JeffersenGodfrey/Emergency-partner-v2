@@ -7,7 +7,11 @@
     "format:check": "prettier . --check",
     "lint": "npm --prefix frontend run lint",
     "build": "npm --prefix frontend run build",
-    "backend:check": "node --check backend/server.js"
+    "backend:check": "node --check backend/server.js",
+    "backend:start": "npm --prefix backend start",
+    "backend:dev": "npm --prefix backend run dev",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:preview": "npm --prefix frontend run preview"
   },
   "devDependencies": {
     "prettier": "^3.0.0"

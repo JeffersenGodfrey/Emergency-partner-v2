@@ -1,0 +1,38 @@
+name: Deploy Backend to Render
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/deploy-backend.yml'
+      - 'render.yaml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Render
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate backend code
+        run: |
+          cd backend
+          node --check server.js
+          npm ci
+          npm run format:check
+          npm run lint
+
+      - name: Deploy to Render
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$RENDER_API_KEY" ]; then
+            echo " RENDER_DEPLOY_HOOK secret not configured. Render deployment will not proceed."
+            echo "Add your Render deploy hook URL as 'RENDER_DEPLOY_HOOK' secret in GitHub repository settings."
+          else
+            curl --no-buffer -X POST "$RENDER_API_KEY"
+          fi

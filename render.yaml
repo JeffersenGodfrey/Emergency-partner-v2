@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: emergency-partner-api
+    env: node
+    plan: free
+    startCommand: cd backend && npm install && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+    branch: main
+    buildCommand: cd backend && npm install && npm run format:check && npm run lint
