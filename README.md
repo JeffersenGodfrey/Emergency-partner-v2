@@ -1,6 +1,6 @@
-# Emergency Partner
+# Emergency Partner Version 2
 
-AI-powered offline emergency resource finder. React + Node.js.
+Emergency resource finder. React + Node.js.
 
 ## Setup
 
@@ -19,8 +19,6 @@ cd frontend
 npm install
 npm run dev
 ```
-
-App runs on `http://localhost:3000`
 
 ## Development
 
@@ -53,7 +51,7 @@ The frontend is automatically deployed to GitHub Pages on every push to `main`.
    - Update `GITHUB_PAGES` base URL in [frontend/vite.config.js](frontend/vite.config.js) if repo name differs
 
 3. **Access:**
-   - Frontend will be available at: `https://<username>.github.io/Emergency-partner/`
+   - Frontend will be available at: `https://jeffersengodfrey.github.io/Emergency-partner-v2/`
 
 ### Backend Deployment (Render)
 
@@ -71,7 +69,7 @@ The backend is automatically deployed to Render on every push to `main` (in the 
    - Add environment variables:
      - `NODE_ENV=production`
      - `PORT=3001`
-     - `CORS_ORIGIN=https://<username>.github.io/Emergency-partner/`
+     - `CORS_ORIGIN=https://jeffersengodfrey.github.io/Emergency-partner-v2/`
 
 3. **Setup Deployment Webhook (Optional):**
    - Get your Deploy Hook URL from Render service settings
