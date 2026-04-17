@@ -50,8 +50,8 @@ export default function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1>AI Emergency Resource Finder</h1>
-        <p>Find emergency help nearby instantly — powered by offline data and simple AI.</p>
+        <h1>Emergency Resource Finder</h1>
+        <p>Find emergency help nearby instantly </p>
       </header>
 
       <SearchForm onSearch={handleSearch} loading={loading} />
